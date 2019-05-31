@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="../static/img/portfolio.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <b>Workload Organizer</b>
+    </a>
+
+    <a class="btn btn-primary" href="/backend" role="button">Add Order</a>
+
+
+    {% extends 'base.html' %}
+    {% block content %}
+
+
+</nav>
+<div class="chat-container" style="overflow: auto; max-height: 80vh">
+    <div class="table-responsive">
+        <table class="table" id="flights">
+            <thead>
+                <tr>
+                    <th scope="col">Order Nr</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                <tr id={{ flight.id }}>
+                    <th scope="row">{{ flight.flight }}</th>
+                    <td> {{flight.destination }} </td>
+                    <td> {{ flight.check_in }} </td>
+                    <td> {{ flight.departure }} </td>
+                    <td> {{ flight.status }} </td>
+                </tr>
+                {% endfor %}
+                <h1 class="text-justify">My Orders</h1>
+                <p class="text-justify">Here are all your orders, click add orders to add and edit orders!</p>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
